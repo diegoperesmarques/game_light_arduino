@@ -4,20 +4,35 @@
 #define LED_VERMELHO 4
 #define UM_SEGUNDO 1000
 #define MEIO_SEGUNDO 500
+#define TAMANHO_SEQUENCIA 4
+
+int sequenciaLuzes[TAMANHO_SEQUENCIA]; 
 
 
 void setup() {
-
  //Inicia de portas
   iniciaPortas();
+  iniciaJogo();
+  
 }
 
 void loop() {
-
+  for(int indice = 0; indice < TAMANHO_SEQUENCIA; indice++) {
+    piscaLed(sequenciaLuzes[indice]);
+  }
 }
 
 
 //Funções
+
+void iniciaJogo() {
+ sequenciaLuzes[0] = LED_VERDE;
+ sequenciaLuzes[1] = LED_AMARELO;
+ sequenciaLuzes[2] = LED_VERMELHO;
+ sequenciaLuzes[3] = LED_AZUL;
+}
+
+
 
 void iniciaPortas() {
  pinMode(LED_VERDE, OUTPUT);
